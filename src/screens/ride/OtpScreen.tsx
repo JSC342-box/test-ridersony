@@ -305,7 +305,37 @@ export default function OtpScreen({ route, navigation }: OtpScreenProps) {
         alignItems: 'center',
         transform: [{ scale: anim.interpolate({ inputRange: [0, 1], outputRange: [0.95, 1] }) }],
       }}>
-        <View style={{ position: 'absolute', top: 18, right: 18, zIndex: 10 }}>
+        {/* Header with back and cancel buttons */}
+        <View style={{ 
+          position: 'absolute', 
+          top: 18, 
+          left: 18, 
+          right: 18, 
+          zIndex: 10, 
+          flexDirection: 'row', 
+          justifyContent: 'space-between', 
+          alignItems: 'center' 
+        }}>
+          {/* Back Button */}
+          <TouchableOpacity
+            style={{
+              backgroundColor: '#6c757d',
+              paddingHorizontal: 12,
+              paddingVertical: 8,
+              borderRadius: 16,
+              shadowColor: '#6c757d',
+              shadowOffset: { width: 0, height: 2 },
+              shadowOpacity: 0.3,
+              shadowRadius: 4,
+              elevation: 4
+            }}
+            onPress={() => navigation.goBack()}
+            activeOpacity={0.7}
+          >
+            <Ionicons name="arrow-back" size={20} color="#fff" />
+          </TouchableOpacity>
+
+          {/* Cancel Button */}
           <CancelRideButton
             rideId={ride.rideId}
             driverId={ride.driverId}
@@ -318,7 +348,7 @@ export default function OtpScreen({ route, navigation }: OtpScreenProps) {
             style={{ 
               backgroundColor: '#ff4757', 
               paddingHorizontal: 12, 
-              paddingVertical: 6, 
+              paddingVertical: 8, 
               borderRadius: 16,
               shadowColor: '#ff4757',
               shadowOffset: { width: 0, height: 2 },

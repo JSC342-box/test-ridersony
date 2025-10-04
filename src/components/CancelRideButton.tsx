@@ -114,17 +114,19 @@ export default function CancelRideButton({
         {showIcon && (
           <Ionicons 
             name="close-circle" 
-            size={16} 
+            size={20} 
             color={disabled ? '#ccc' : '#fff'} 
             style={styles.icon}
           />
         )}
-        <Text style={[
-          styles.buttonText,
-          disabled && styles.buttonTextDisabled,
-        ]}>
-          Cancel Ride
-        </Text>
+        {!showIcon && (
+          <Text style={[
+            styles.buttonText,
+            disabled && styles.buttonTextDisabled,
+          ]}>
+            Cancel Ride
+          </Text>
+        )}
       </TouchableOpacity>
 
       <CancelRideModal
